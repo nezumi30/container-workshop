@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-pod
+  namespace: myns
+  labels:
+    version: v1
+spec: 
+  containers:
+  - name: fortune-container
+    image: nezumi30/myfortuneapp:v2
+    imagePullPolicy: Always
+    env:
+    - name: APP_PORT
+      value: "3000"
+    ports: 
+    - name: http
+      containerPort: 3000
